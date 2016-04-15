@@ -28,6 +28,11 @@ public class PraticaLogica {
 		System.out.println("Média:");
 		// Q04
 		imprimirMedias(nomes, medias);
+		
+		
+		// Q06
+		System.out.println();
+		matrizAprovados(nomes, medias);
 	}
 
 	static void q02(String[] vetor, double[][] matriz) {
@@ -66,4 +71,31 @@ public class PraticaLogica {
 	// Q05.1 - Imprimir todos os elementos de um matriz Anxn
 	//TODO - Aqui vai o seu código
 
+/* Q06 - Criando uma matriz que possui 10x2, com o nome do aluno e
+	 true/false referente a aprovação
+	 após isso, imprimimos a matriz
+	By grupoljgln (Nicolas)*/
+	static void matrizAprovados(String[] nomes, double[] medias) {
+		String[][] aprovado = new String[nomes.length][2];
+		for (int i = 0; i < nomes.length; i++) {
+			for (int j = 0; j < 2; j++) {
+				if (j == 0) {
+					aprovado[i][j] = nomes[i];
+				} else {
+					if (medias[i] >= 8) {
+						aprovado[i][j] = "true";
+					} else {
+						aprovado[i][j] = "false";
+					}
+				}
+			}
+		}
+		System.out.printf("Aluno\tAprovação \n");
+		for (int i = 0; i < nomes.length; i++) {
+			for (int j = 0; j < 2; j++) {
+				System.out.printf("%s \t", aprovado[i][j]);
+			}
+			System.out.println();
+		}
+	}
 }
